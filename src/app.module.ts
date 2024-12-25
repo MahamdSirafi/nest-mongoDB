@@ -16,7 +16,6 @@ import { AuthGoogleModule } from './auth-google/auth-google.module';
 import { I18nModule } from 'nestjs-i18n/dist/i18n.module';
 import { HeaderResolver } from 'nestjs-i18n';
 import { MailModule } from './mail/mail.module';
-import { HomeModule } from './home/home.module';
 import { AllConfigType } from './config/config.type';
 import { SessionModule } from './session/session.module';
 import { MailerModule } from './mailer/mailer.module';
@@ -28,14 +27,8 @@ const infrastructureDatabaseModule = MongooseModule.forRootAsync({
   useClass: MongooseConfigService,
 });
 
-import { MessagesModule } from './messages/messages.module';
-
-import { BasharsModule } from './bashars/bashars.module';
-
 @Module({
   imports: [
-    BasharsModule,
-    MessagesModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [
@@ -81,7 +74,6 @@ import { BasharsModule } from './bashars/bashars.module';
     SessionModule,
     MailModule,
     MailerModule,
-    HomeModule,
     LoggerModule,
   ],
 })
